@@ -1,10 +1,16 @@
 package com.improve10x.trendytech.Models;
 
-import android.media.Rating;
+
 
 import com.google.gson.annotations.SerializedName;
 
 public class Product {
+    private Integer id;
+    private String title;
+    private Float price;
+    @SerializedName("image")
+    private String imageUrl;
+    public Rating rating;
 
     public Integer getId() {
         return id;
@@ -38,18 +44,4 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    public Rating getRating() {
-        return rating;
-    }
-
-    public void setRating(Rating rating) {
-        this.rating = rating;
-    }
-
-    private Integer id;
-    private String title;
-    private Float price;
-    @SerializedName("image")
-    private String imageUrl;
-    private Rating rating;
 }

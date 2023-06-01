@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.improve10x.trendytech.Network.CategoryApi;
 import com.improve10x.trendytech.Network.CategoryService;
+import com.improve10x.trendytech.Products.ProductsActivity;
 import com.improve10x.trendytech.R;
 
 import java.util.ArrayList;
@@ -23,6 +27,9 @@ public ArrayList<String> categoryArrayList = new ArrayList<>();
 public CategoryAdapter categoryAdapter;
 public RecyclerView categoryRv;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +39,8 @@ public RecyclerView categoryRv;
         setupApiService();
         setupAdapter();
         setupRecyclerView();
-        fetchDeliveryStatus();
+        fetchCategories();
+
     }
 
     private void setupApiService() {
@@ -40,18 +48,19 @@ public RecyclerView categoryRv;
         categoryService = categoryApi.createCategoryService();
     }
 
-    private void fetchDeliveryStatus() {
+    private void fetchCategories() {
         Call<List<String>> call = categoryService.fetchCategories();
         call.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+                Toast.makeText(CategoriesActivity.this, "Successfully loaded the data", Toast.LENGTH_SHORT).show();
                 List<String> category = response.body();
                 categoryAdapter.setData(category);
             }
 
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
-
+                Toast.makeText(CategoriesActivity.this, "Failed to load the data", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -65,6 +74,18 @@ public RecyclerView categoryRv;
     private void setupAdapter() {
     categoryAdapter = new CategoryAdapter();
     categoryAdapter.setData(categoryArrayList);
+    categoryAdapter.setOnItemActionListener(new OnItemActionListener() {
+        @Override
+        public void onItemClicked(String categoryName) {
+
+            Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+            intent.putExtra("category", categoryName);
+            startActivity(intent);
+        }
+    });
+
+
+
     }
 
    /* private void setupData() {
