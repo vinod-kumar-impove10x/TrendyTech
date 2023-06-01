@@ -1,10 +1,14 @@
-package com.improve10x.trendytech;
+package com.improve10x.trendytech.Categories;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.improve10x.trendytech.Network.CategoryApi;
+import com.improve10x.trendytech.Network.CategoryService;
+import com.improve10x.trendytech.R;
 
 import java.util.ArrayList;
 import java.util.List;

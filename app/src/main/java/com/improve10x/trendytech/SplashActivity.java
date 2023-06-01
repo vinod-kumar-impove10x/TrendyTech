@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.improve10x.trendytech.Categories.CategoriesActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
 
         Handler handler = new Handler();
         handler.postDelayed(() -> {
-            Intent intent = new Intent(this,CategoriesActivity.class);
+            Intent intent = new Intent(this, CategoriesActivity.class);
             startActivity(intent);
             finish();
         }, 3000);

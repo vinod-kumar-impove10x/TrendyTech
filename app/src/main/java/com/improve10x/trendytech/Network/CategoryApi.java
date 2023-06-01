@@ -1,4 +1,4 @@
-package com.improve10x.trendytech;
+package com.improve10x.trendytech.Network;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
