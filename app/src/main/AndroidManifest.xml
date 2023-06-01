@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TrendyTech"
         tools:targetApi="31">
         <activity
+            android:name=".ProdectDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Products.ProductsActivity"
             android:exported="false">
             <meta-data

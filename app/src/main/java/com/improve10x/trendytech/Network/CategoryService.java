@@ -14,4 +14,8 @@ public interface CategoryService {
 
  @GET("/products/category/{categoryName}")
  Call<List<Product>> fetchProducts(@Path("categoryName") String categoryName);
+
+ @GET("/products/{productsId}")
+ Call<Product> fetchProductDetails(@Path("productsId")int productId);
 }
+

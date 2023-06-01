@@ -83,9 +83,6 @@ public RecyclerView categoryRv;
             startActivity(intent);
         }
     });
-
-
-
     }
 
    /* private void setupData() {

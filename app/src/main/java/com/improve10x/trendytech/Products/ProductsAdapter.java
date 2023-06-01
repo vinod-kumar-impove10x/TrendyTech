@@ -15,8 +15,13 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
+    OnItemActionListener onItemActionListener;
 
-   public List<Product> productList;
+    void setOnItemActionListener(OnItemActionListener onItemActionListener){
+        this.onItemActionListener = onItemActionListener;
+    }
+
+    public List<Product> productList;
 
    void setData(List<Product> productList) {
      this.productList = productList;
@@ -39,6 +44,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
     holder.priceTxt.setText(String.valueOf(product.getPrice()));
     holder.countTxt.setText(String.valueOf(product.rating.getCount()));
     Picasso.get().load(product.getImageUrl()).into(holder.image);
+    holder.itemView.setOnClickListener(v -> {
+        onItemActionListener.onClicked(productList.get(position).getId());
+    });
    }
 
     @Override
