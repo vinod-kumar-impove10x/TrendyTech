@@ -3,19 +3,24 @@ package com.improve10x.trendytech;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.improve10x.trendytech.Models.Product;
 import com.improve10x.trendytech.Network.CategoryApi;
 import com.improve10x.trendytech.Network.CategoryService;
-
-import java.util.List;
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProdectDetailsActivity extends AppCompatActivity {
+public class ProductDetailsActivity extends AppCompatActivity {
     public int productId;
+    public ImageView productDetailImg;
+    public TextView titleTxt;
+    public TextView description;
+    public TextView price;
 
 
     @Override
@@ -37,6 +42,14 @@ public class ProdectDetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
                 Product product = response.body();
+                productDetailImg = findViewById(R.id.product_Detail_img);
+                Picasso.get().load(product.getImageUrl()).into(productDetailImg);
+                titleTxt = findViewById(R.id.title_txt);
+                titleTxt.setText(product.getTitle());
+                price = findViewById(R.id.pd_price_txt);
+                price.setText(String.valueOf(product.getPrice()));
+                description = findViewById(R.id.pd_description_txt);
+                description.setText(product.getDescription());
 
             }
 

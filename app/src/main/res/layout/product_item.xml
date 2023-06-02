@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/product_img"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,11 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="#090808"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_img" />
 
     <RatingBar
         android:id="@+id/product_rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/product_title_txt"
@@ -40,6 +43,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/product_rating"
         app:layout_constraintTop_toBottomOf="@+id/product_img" />
 
@@ -48,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/product_rating"
         app:layout_constraintTop_toBottomOf="@+id/product_rating" />
 </androidx.constraintlayout.widget.ConstraintLayout>

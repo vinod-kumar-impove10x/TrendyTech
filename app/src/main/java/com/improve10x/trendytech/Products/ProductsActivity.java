@@ -2,7 +2,6 @@ package com.improve10x.trendytech.Products;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -12,7 +11,7 @@ import android.widget.Toast;
 import com.improve10x.trendytech.Models.Product;
 import com.improve10x.trendytech.Network.CategoryApi;
 import com.improve10x.trendytech.Network.CategoryService;
-import com.improve10x.trendytech.ProdectDetailsActivity;
+import com.improve10x.trendytech.ProductDetailsActivity;
 import com.improve10x.trendytech.R;
 
 import java.util.ArrayList;
@@ -77,7 +76,7 @@ public class ProductsActivity extends AppCompatActivity {
     productsAdapter.setOnItemActionListener(new OnItemActionListener() {
         @Override
         public void onClicked(int productsId) {
-            Intent intent = new Intent(getApplicationContext(),ProdectDetailsActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ProductDetailsActivity.class);
             intent.putExtra("productsDetails", productsId);
             startActivity(intent);
         }
