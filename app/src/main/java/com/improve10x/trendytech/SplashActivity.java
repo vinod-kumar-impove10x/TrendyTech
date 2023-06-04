@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.improve10x.trendytech.Categories.CategoriesActivity;
+import com.improve10x.trendytech.categories.CategoriesActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

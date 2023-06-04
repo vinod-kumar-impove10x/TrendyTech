@@ -1,4 +1,4 @@
-package com.improve10x.trendytech.Models;
+package com.improve10x.trendytech.models;
 
 
 

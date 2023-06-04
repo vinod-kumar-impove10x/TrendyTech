@@ -1,14 +1,19 @@
 package com.improve10x.trendytech;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.improve10x.trendytech.Models.Product;
-import com.improve10x.trendytech.Network.CategoryApi;
-import com.improve10x.trendytech.Network.CategoryService;
+import com.improve10x.trendytech.cart.CartProductActivity;
+import com.improve10x.trendytech.models.Product;
+import com.improve10x.trendytech.network.CategoryApi;
+import com.improve10x.trendytech.network.CategoryService;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -58,5 +63,22 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.product_details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.product_details_cart) {
+            Intent intent = new Intent(this, CartProductActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.improve10x.trendytech.Products;
+package com.improve10x.trendytech.products;
 
 public interface OnItemActionListener {
 

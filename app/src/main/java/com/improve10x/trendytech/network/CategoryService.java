@@ -1,6 +1,7 @@
-package com.improve10x.trendytech.Network;
+package com.improve10x.trendytech.network;
 
-import com.improve10x.trendytech.Models.Product;
+import com.improve10x.trendytech.cart.CartProduct;
+import com.improve10x.trendytech.models.Product;
 
 import java.util.List;
 
@@ -17,5 +18,9 @@ public interface CategoryService {
 
  @GET("/products/{productsId}")
  Call<Product> fetchProductDetails(@Path("productsId")int productId);
+
+ @GET("carts/1?userId=1")
+ Call<CartProduct> fetchCartProducts();
+
 }
 

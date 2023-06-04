@@ -1,6 +1,10 @@
-package com.improve10x.trendytech.Models;
+package com.improve10x.trendytech.models;
 
 public class Rating {
+
+
+    private Float rate;
+    private Integer count;
 
     public Float getRate() {
         return rate;
@@ -18,6 +22,5 @@ public class Rating {
         this.count = count;
     }
 
-    private Float rate;
-    private Integer count;
+
 }

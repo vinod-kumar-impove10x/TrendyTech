@@ -1,4 +1,4 @@
-package com.improve10x.trendytech.Products;
+package com.improve10x.trendytech.products;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -8,9 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.trendytech.Models.Product;
-import com.improve10x.trendytech.Network.CategoryApi;
-import com.improve10x.trendytech.Network.CategoryService;
+import com.improve10x.trendytech.models.Product;
+import com.improve10x.trendytech.network.CategoryApi;
+import com.improve10x.trendytech.network.CategoryService;
 import com.improve10x.trendytech.ProductDetailsActivity;
 import com.improve10x.trendytech.R;
 

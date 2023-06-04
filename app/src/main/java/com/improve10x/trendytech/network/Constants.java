@@ -1,4 +1,4 @@
-package com.improve10x.trendytech.Network;
+package com.improve10x.trendytech.network;
 
 public class Constants {
 

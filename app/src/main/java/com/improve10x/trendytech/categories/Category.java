@@ -1,4 +1,4 @@
-package com.improve10x.trendytech.Categories;
+package com.improve10x.trendytech.categories;
 
 public class Category {
 

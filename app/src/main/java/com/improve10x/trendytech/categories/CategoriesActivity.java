@@ -1,17 +1,19 @@
-package com.improve10x.trendytech.Categories;
+package com.improve10x.trendytech.categories;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.trendytech.Network.CategoryApi;
-import com.improve10x.trendytech.Network.CategoryService;
-import com.improve10x.trendytech.Products.ProductsActivity;
+import com.improve10x.trendytech.databinding.ActivityCategoriesBinding;
+import com.improve10x.trendytech.network.CategoryApi;
+import com.improve10x.trendytech.network.CategoryService;
+import com.improve10x.trendytech.products.ProductsActivity;
 import com.improve10x.trendytech.R;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CategoriesActivity extends AppCompatActivity {
+    public ActivityCategoriesBinding activityCategoriesBinding;
 public CategoryService categoryService;
 public ArrayList<String> categoryArrayList = new ArrayList<>();
 public CategoryAdapter categoryAdapter;
@@ -33,7 +36,8 @@ public RecyclerView categoryRv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categories);
+        activityCategoriesBinding = ActivityCategoriesBinding.inflate(getLayoutInflater());
+        setContentView(activityCategoriesBinding.getRoot());
         getSupportActionBar().setTitle("Categories");
         //setupData();
         setupApiService();

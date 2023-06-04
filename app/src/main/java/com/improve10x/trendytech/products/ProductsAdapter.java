@@ -1,14 +1,13 @@
-package com.improve10x.trendytech.Products;
+package com.improve10x.trendytech.products;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.improve10x.trendytech.Models.Product;
+import com.improve10x.trendytech.models.Product;
 import com.improve10x.trendytech.R;
 import com.squareup.picasso.Picasso;
 

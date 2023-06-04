@@ -5,9 +5,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
-import com.improve10x.trendytech.Models.Product;
-import com.improve10x.trendytech.Network.CategoryApi;
-import com.improve10x.trendytech.Network.CategoryService;
+import com.improve10x.trendytech.cart.CartProduct;
+import com.improve10x.trendytech.models.Product;
+import com.improve10x.trendytech.network.CategoryApi;
+import com.improve10x.trendytech.network.CategoryService;
 
 import java.io.IOException;
 import java.util.List;
@@ -45,4 +46,13 @@ public class ExampleUnitTest {
         assertFalse(Products.isEmpty());
         System.out.println(new Gson().toJson(Products));
     }
+
+     @Test
+    public void getCart() throws IOException {
+        CategoryService categoryService =new CategoryApi().createCategoryService();
+        Call<CartProduct> call =  categoryService.fetchCartProducts();
+        CartProduct cartProducts = call.execute().body();
+        assertNotNull(cartProducts);
+        System.out.println(new Gson().toJson(cartProducts));
+     }
 }
