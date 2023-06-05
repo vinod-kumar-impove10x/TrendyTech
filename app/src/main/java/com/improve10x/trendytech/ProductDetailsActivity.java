@@ -42,13 +42,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private void fetchProductDetails() {
         CategoryApi api = new CategoryApi();
         CategoryService service = api.createCategoryService();
-        Call<Product> call = service.fetchProductDetails(productId);
+        Call<Product> call = service.fetchProductDetails();
         call.enqueue(new Callback<Product>() {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
                 Product product = response.body();
                 productDetailImg = findViewById(R.id.product_Detail_img);
-                Picasso.get().load(product.getImageUrl()).into(productDetailImg);
+                Picasso.get().load(product.getImageUrl().get(0)).into(productDetailImg);
                 titleTxt = findViewById(R.id.title_txt);
                 titleTxt.setText(product.getTitle());
                 price = findViewById(R.id.pd_price_txt);

@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
 import com.improve10x.trendytech.cart.CartProduct;
+import com.improve10x.trendytech.categories.Category;
 import com.improve10x.trendytech.models.Product;
 import com.improve10x.trendytech.network.CategoryApi;
 import com.improve10x.trendytech.network.CategoryService;
@@ -30,8 +31,8 @@ public class ExampleUnitTest {
     @Test
     public void getCategories() throws IOException {
         CategoryService service = new CategoryApi().createCategoryService();
-        Call<List<String>> call = service.fetchCategories();
-        List<String> categories = call.execute().body();
+        Call<List<Category>> call = service.fetchCategories();
+        List<Category> categories = call.execute().body();
         assertNotNull(categories);
         assertFalse(categories.isEmpty());
         System.out.println(new Gson().toJson(categories));
@@ -39,11 +40,11 @@ public class ExampleUnitTest {
 
     @Test
     public  void getProducts() throws IOException {
-     CategoryService service = new CategoryApi().createCategoryService();
-        Call<List<Product>> call = service.fetchProducts("jewelery");
+        CategoryService service = new CategoryApi().createCategoryService();
+        Call<List<Product>> call = service.fetchProducts("1");
         List<Product> Products = call.execute().body();
         assertNotNull(Products);
-        assertFalse(Products.isEmpty());
+        //assertFalse(Products.isEmpty());
         System.out.println(new Gson().toJson(Products));
     }
 

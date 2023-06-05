@@ -33,11 +33,11 @@ public class ProductsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
-       // getSupportActionBar().setTitle("Products");
         if (getIntent().hasExtra("category")) {
             category = getIntent().getStringExtra("category");
             getSupportActionBar().setTitle(category);
         }
+        getSupportActionBar().setTitle("Products");
         setupApiService();
         setupAdapter();
         setupProductsRv();

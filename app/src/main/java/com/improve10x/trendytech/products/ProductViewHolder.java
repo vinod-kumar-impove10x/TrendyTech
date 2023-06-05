@@ -14,9 +14,9 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
     ImageView image;
     TextView titleTxt;
-    RatingBar rating;
+    //RatingBar rating;
     TextView priceTxt;
-    TextView countTxt;
+    //TextView countTxt;
 
 
     public ProductViewHolder(@NonNull View itemView) {
@@ -24,9 +24,9 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
        image = itemView.findViewById(R.id.product_img);
        titleTxt = itemView.findViewById(R.id.product_title_txt);
-       rating = itemView.findViewById(R.id.product_rating);
+       //rating = itemView.findViewById(R.id.product_rating);
        priceTxt = itemView.findViewById(R.id.product_price_txt);
-       countTxt = itemView.findViewById(R.id.product_count_txt);
+       //countTxt = itemView.findViewById(R.id.product_count_txt);
 
 
     }

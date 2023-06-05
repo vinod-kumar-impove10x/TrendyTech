@@ -25,13 +25,10 @@ import retrofit2.Response;
 
 public class CategoriesActivity extends AppCompatActivity {
     public ActivityCategoriesBinding activityCategoriesBinding;
-public CategoryService categoryService;
-public ArrayList<String> categoryArrayList = new ArrayList<>();
-public CategoryAdapter categoryAdapter;
-public RecyclerView categoryRv;
-
-
-
+    public CategoryService categoryService;
+    public List<Category> categoryArrayList = new ArrayList<>();
+    public CategoryAdapter categoryAdapter;
+    public RecyclerView categoryRv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +38,9 @@ public RecyclerView categoryRv;
         getSupportActionBar().setTitle("Categories");
         //setupData();
         setupApiService();
+        fetchCategories();
         setupAdapter();
         setupRecyclerView();
-        fetchCategories();
-
     }
 
     private void setupApiService() {
@@ -53,40 +49,40 @@ public RecyclerView categoryRv;
     }
 
     private void fetchCategories() {
-        Call<List<String>> call = categoryService.fetchCategories();
-        call.enqueue(new Callback<List<String>>() {
+        Call<List<Category>> call = categoryService.fetchCategories();
+        call.enqueue(new Callback<List<Category>>() {
             @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                 Toast.makeText(CategoriesActivity.this, "Successfully loaded the data", Toast.LENGTH_SHORT).show();
-                List<String> category = response.body();
+                List<Category> category = response.body();
                 categoryAdapter.setData(category);
             }
 
             @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
+            public void onFailure(Call<List<Category>> call, Throwable t) {
                 Toast.makeText(CategoriesActivity.this, "Failed to load the data", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void setupRecyclerView() {
-     categoryRv = findViewById(R.id.categories_rv);
-     categoryRv.setLayoutManager(new LinearLayoutManager(this));
-     categoryRv.setAdapter(categoryAdapter);
+        categoryRv = findViewById(R.id.categories_rv);
+        categoryRv.setLayoutManager(new LinearLayoutManager(this));
+        categoryRv.setAdapter(categoryAdapter);
     }
 
     private void setupAdapter() {
-    categoryAdapter = new CategoryAdapter();
-    categoryAdapter.setData(categoryArrayList);
-    categoryAdapter.setOnItemActionListener(new OnItemActionListener() {
-        @Override
-        public void onItemClicked(String categoryName) {
+        categoryAdapter = new CategoryAdapter();
+        categoryAdapter.setData(categoryArrayList);
+        categoryAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onItemClicked(int categoryId) {
+                Intent intent = new Intent(CategoriesActivity.this, ProductsActivity.class);
+                intent.putExtra("category", categoryId);
+                startActivity(intent);
 
-            Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
-            intent.putExtra("category", categoryName);
-            startActivity(intent);
-        }
-    });
+            }
+        });
     }
 
    /* private void setupData() {

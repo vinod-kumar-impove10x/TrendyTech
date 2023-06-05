@@ -18,9 +18,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
      public void setOnItemActionListener(OnItemActionListener listener) {
        onItemActionListener = listener;
      }
-    public List<String> categoryList;
+    public List<Category> categoryList;
 
-    void setData(List<String> categoryList) {
+    void setData(List<Category> categoryList) {
      this.categoryList = categoryList;
      notifyDataSetChanged();
     }
@@ -34,10 +34,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        String string = categoryList.get(position);
-        holder.categoriesItemBinding.setString(string);
-        holder.itemView.setOnClickListener(v -> {
-            onItemActionListener.onItemClicked(string);
+        Category category= categoryList.get(position);
+        holder.categoriesItemBinding.setCategory(category);// this is data binding.
+        //holder.categoriesItemBinding.titleTxt.setText(category.getName()); This is view binding.
+        holder.categoriesItemBinding.getRoot().setOnClickListener(v -> {
+            onItemActionListener.onItemClicked(category.getId());
         });
 
     }
